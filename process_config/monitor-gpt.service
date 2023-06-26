@@ -1,0 +1,17 @@
+[Unit]
+Description=monitor-gpt daemon
+After=network.target network-online.target
+Before=shutdown.target reboot.target halt.target
+
+[Service]
+ExecStart=/usr/local/bin/monitor_cloud_gpt start --conf /var/lib/mgpt/mgpt.conf
+ExecReload=/bin/kill -HUP $MAINPID
+Type=idle
+KillMode=process
+Restart=always
+RestartSec=1s
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
+
