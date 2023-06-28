@@ -1,10 +1,10 @@
 [Unit]
-Description=monitor-gpt daemon
+Description=ycharcore daemon
 After=network.target network-online.target
 Before=shutdown.target reboot.target halt.target
 
 [Service]
-ExecStart=/usr/local/bin/monitor_cloud_gpt start --conf /var/lib/mgpt/mgpt.conf
+ExecStart=/usr/local/bin/ycharcore start --conf /var/lib/ychatcore/ychatcore.conf
 ExecReload=/bin/kill -HUP $MAINPID
 Type=idle
 KillMode=process
